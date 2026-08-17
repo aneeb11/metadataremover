@@ -1,0 +1,163 @@
+---
+// faq.astro - Dedicated FAQ Page with JSON-LD FAQPage schema
+import Layout from '../layouts/Layout.astro';
+import FAQ from '../components/FAQ.astro';
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I remove metadata?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To remove metadata, drag and drop your image onto our dropzone at the top of the page, then click Strip All Metadata. The tool reads your file locally in your browser, re-renders it through an HTML5 Canvas which discards all EXIF, XMP, IPTC, GPS, and AI tags, and offers you a clean download — all in seconds, with zero server uploads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is metadata remover safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Meta Data Remover is 100% safe. Your files never leave your device. All processing happens inside your browser's JavaScript sandbox using the HTML5 File API and Canvas API. There is no server receiving your photos, no database storing them, and no third-party analytics tracking you. You can even disconnect from the internet after the page loads and the tool will continue to work offline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I remove all my metadata?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To remove all metadata at once: drop multiple images into the dropzone — our batch queue accepts dozens of files simultaneously. Click Strip All Metadata to process every file in the queue. Then click Download ZIP to get all cleaned images in a single archive. This removes EXIF, GPS, XMP, IPTC, C2PA credentials, AI prompts, and cryptographic hashes in one pass."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I remove metadata from a video?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our current tool specialises in image formats (JPEG, PNG, WebP, AVIF, GIF). For video metadata removal, you can use FFmpeg with the command: ffmpeg -i input.mp4 -map_metadata -1 -c:v copy -c:a copy output.mp4 which strips all MP4/MOV/AVI metadata atoms without re-encoding. Desktop tools like HandBrake can also strip video metadata during export."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are metadata removers free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Meta Data Remover is completely free — no sign-up, no subscription, no file limits, and no watermarks. Some competing tools impose file size caps, require accounts, or upsell Pro plans for batch processing. We believe privacy tools should be universally accessible, so everything including batch ZIP export is free with no strings attached."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to get metadata off a video?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To strip metadata from a video file: on Windows, right-click the file → Properties → Details tab → Remove Properties and Personal Information. On macOS, use QuickTime Player → File → Export and the exported file will have minimal metadata. For full control use FFmpeg or ExifTool (exiftool -all= video.mp4) which strips all metadata atoms from any video container."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it legal to remove metadata?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In almost all jurisdictions, removing metadata from your own photos and files is entirely legal and is a well-established privacy right. Many privacy laws including GDPR in Europe actually encourage individuals to strip personally-identifying data before sharing content. Note: intentionally removing copyright metadata from someone else's work before redistribution may violate the Digital Millennium Copyright Act (DMCA) or similar laws. Always ensure you own or have rights to the files you process."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I remove metadata from a photo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, absolutely. Meta Data Remover supports JPEG, PNG, WebP, AVIF, and GIF formats. Simply drop your photo into the tool, hit Strip, and download a clean copy. The original photo on your device is never modified — you receive a new stripped file while your original stays intact."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best app for removing photo metadata?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Meta Data Remover at metadataremover.tech is the best browser-based solution because it is 100% free, requires no installation or account, processes files entirely offline in your browser, and uniquely strips AI generation prompts (Stable Diffusion, Midjourney, DALL-E) and C2PA content credentials — features most competitors lack. For power users needing command-line control, ExifTool is the gold-standard desktop tool."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why remove metadata from photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Photos taken on smartphones automatically embed GPS coordinates (often accurate to within 5 metres), your device model, and the exact timestamp into the file. When you share these photos publicly — on social media, in emails, or via messaging apps — this data travels with the image. Attackers can extract this to determine your home address, daily routine, and device fingerprint. Removing metadata before sharing is a simple, powerful privacy step every person should take."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I remove image metadata online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Visit metadataremover.tech, drag your image onto the dropzone, and click Strip All Metadata. Unlike other online tools, your image is processed locally in your browser and never uploaded to any server — making it the most private online metadata remover available. Supported formats include JPEG, PNG, WebP, AVIF, and GIF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is metadata used for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Image metadata serves several purposes: cameras use it to store exposure settings (aperture, ISO, shutter speed) for review; photo management apps use dates and GPS to organize libraries by time and location; copyright holders embed author and license details via XMP/IPTC; AI tools embed generation parameters for reproducibility. However, this same data can be exploited by third parties to track your location, identify your device, or unmask your AI creative process."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is metadata a security risk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — metadata is a significant security and privacy risk. GPS geotags can expose your home, workplace, or daily movements. Camera serial numbers can link photos across different online identities. IPTC copyright fields can reveal your real name. AI generation seeds can expose your creative workflow. Investigative journalists, privacy researchers, and government agencies regularly exploit image metadata to de-anonymise individuals. Removing it before sharing is a critical operational security (OpSec) practice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are three types of metadata?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The three primary types of image metadata are: (1) Descriptive Metadata — information about the content such as title, keywords, captions, and author names stored in XMP and IPTC fields. (2) Technical Metadata — hardware and capture parameters such as camera model, focal length, exposure time, GPS coordinates, and colour profile stored in EXIF/TIFF headers. (3) Provenance Metadata — editing and generation history such as software version, C2PA content credentials, AI prompt chains, and revision logs stored in XMP History and C2PA manifest blocks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do I need metadata?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Metadata is useful for personal photo management (automatic date and location organisation), professional photography (storing copyright and licensing details), and AI reproducibility (recreating generation conditions). However, when sharing images publicly or sending them to untrusted parties, the privacy risks outweigh these benefits. Our tool lets you keep the original file with all its metadata intact on your device while distributing a clean, stripped copy — giving you the best of both worlds."
+      }
+    }
+  ]
+};
+---
+
+<Layout
+  title="FAQ: How to Remove Image Metadata, EXIF & GPS Data | Meta Data Remover"
+  description="Answers to the most common questions about removing EXIF metadata, GPS geotags, AI prompts, and C2PA credentials from images. 100% free, 100% in-browser at metadataremover.tech."
+>
+  <!-- JSON-LD FAQPage Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
+
+  <div class="w-full py-12 md:py-16 px-4 md:px-8 mesh-gradient-bg border-b border-[var(--color-hairline)] text-center">
+    <div class="max-w-4xl mx-auto">
+      <span class="caption-mono text-[#0070f3] mb-2 font-mono">Knowledge Hub</span>
+      <h1 class="display-lg text-[var(--color-ink)] mb-4">Frequently Asked Questions</h1>
+      <p class="text-sm md:text-base text-[var(--color-body)] max-w-xl mx-auto">
+        Clear, transparent answers about image metadata, privacy protection, EXIF removal, and how our 100% in-browser tool works.
+      </p>
+    </div>
+  </div>
+
+  <FAQ />
+
+  <!-- Bottom CTA -->
+  <section class="w-full py-12 px-4 md:px-8 bg-[var(--color-canvas-soft)] border-t border-[var(--color-hairline)] text-center">
+    <div class="max-w-xl mx-auto">
+      <h2 class="text-base font-semibold text-[var(--color-ink)] mb-2">Ready to remove your metadata?</h2>
+      <p class="text-xs text-[var(--color-body)] mb-5">Free, instant, and 100% private — no upload required.</p>
+      <a href="/" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[var(--color-primary)] text-[var(--color-on-primary)] text-sm font-semibold hover:opacity-90 shadow-xs">
+        Open the Tool →
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,69 @@
+---
+// privacy.astro - Official Privacy Policy Page
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Privacy Policy — Metadata Remover (metadataremover.tech)"
+  description="Read the privacy policy of metadataremover.tech. Our metadata remover processes all photos locally in your browser — zero server uploads, zero data collection, zero tracking."
+  keywords="metadata remover privacy, safe metadata remover, private metadata remover, metadata remover no upload, secure metadata remover"
+>
+  <div class="w-full py-12 md:py-16 px-4 md:px-8 mesh-gradient-bg border-b border-[var(--color-hairline)] text-center">
+    <div class="max-w-4xl mx-auto">
+      <span class="caption-mono text-[#50e3c2] mb-2 font-mono">100% Client-Side Guarantee</span>
+      <h1 class="display-lg text-[var(--color-ink)] mb-4">Privacy Policy</h1>
+      <p class="text-sm md:text-base text-[var(--color-body)] max-w-xl mx-auto">
+        Last updated: August 17, 2026. Your files and data never leave your browser.
+      </p>
+    </div>
+  </div>
+
+  <section class="w-full py-16 px-4 md:px-8 bg-[var(--color-canvas)]">
+    <div class="max-w-3xl mx-auto space-y-8 text-sm text-[var(--color-body)] leading-relaxed">
+      
+      <div class="p-6 rounded-xl bg-[var(--color-canvas-soft-2)] border border-[var(--color-hairline)] space-y-3">
+        <h2 class="text-base font-semibold text-[var(--color-ink)]">1. Core Privacy Principle: Zero Server Uploads</h2>
+        <p>
+          At <strong>Meta Data Remover</strong> (<code>metadataremover.tech</code>), privacy is not an afterthought—it is the entire foundation of our application. All file reading, EXIF tag parsing, canvas re-rendering, and metadata stripping occur 100% locally within your client browser RAM.
+        </p>
+        <p>
+          Your images, photos, and files are <strong>never transmitted</strong> across the network to our servers or any third-party server.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <h2 class="text-base font-semibold text-[var(--color-ink)]">2. Information Collection & Usage</h2>
+        <p>
+          Because all processing takes place locally in client memory:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 font-mono text-xs">
+          <li>We do not collect, view, store, or log your uploaded photos or image metadata.</li>
+          <li>We do not collect personal identifying information (PII) or user accounts.</li>
+          <li>We do not track your location coordinates extracted from photo EXIF tags.</li>
+        </ul>
+      </div>
+
+      <div class="space-y-3">
+        <h2 class="text-base font-semibold text-[var(--color-ink)]">3. Local Storage</h2>
+        <p>
+          We use <code>localStorage</code> solely to persist your UI preference for Dark Mode / Light Mode styling across browser sessions. No tracking cookies or advertising IDs are placed on your device.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <h2 class="text-base font-semibold text-[var(--color-ink)]">4. Offline Functionality</h2>
+        <p>
+          You can test and verify our privacy commitment at any time by loading <code>metadataremover.tech</code>, disconnecting your device's Wi-Fi or internet connection, and processing files offline. The application will continue to parse and strip metadata seamlessly.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <h2 class="text-base font-semibold text-[var(--color-ink)]">5. Contact Us</h2>
+        <p>
+          If you have questions regarding this Privacy Policy, please reach out via our <a href="/contact" class="text-[#0070f3] underline">Contact Page</a> or email <code>privacy@metadataremover.tech</code>.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</Layout>

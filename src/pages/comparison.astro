@@ -1,0 +1,23 @@
+---
+// comparison.astro - Competitor Benchmark & Feature Matrix Page
+import Layout from '../layouts/Layout.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+---
+
+<Layout
+  title="Best Free Metadata Remover App — Comparison vs Other Tools"
+  description="Compare the best free metadata remover online. See why metadataremover.tech beats other metadata remover apps with 100% privacy, AI prompt removal, bulk processing, and zero uploads."
+  keywords="best metadata remover, free metadata remover, metadata remover app, metadata remover online, bulk metadata remover, online metadata remover, metadata remover comparison"
+>
+  <div class="w-full py-12 md:py-16 px-4 md:px-8 mesh-gradient-bg border-b border-[var(--color-hairline)] text-center">
+    <div class="max-w-4xl mx-auto">
+      <span class="caption-mono text-[#0070f3] mb-2 font-mono">Competitor Comparison</span>
+      <h1 class="display-lg text-[var(--color-ink)] mb-4">How We Compare to Competitors</h1>
+      <p class="text-sm md:text-base text-[var(--color-body)] max-w-xl mx-auto">
+        A direct feature-by-feature matrix comparing privacy, inspection tools, batch capabilities, and export options.
+      </p>
+    </div>
+  </div>
+
+  <ComparisonTable />
+</Layout>

@@ -1,0 +1,3 @@
+# Redirect all pages.dev subdomains to metadataremover.tech
+https://metadataremover-6q9.pages.dev/* https://metadataremover.tech/:splat 301!
+https://master.metadataremover-6q9.pages.dev/* https://metadataremover.tech/:splat 301!

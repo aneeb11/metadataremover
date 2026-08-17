@@ -1,0 +1,53 @@
+---
+// 404.astro - 404 Page Not Found Error Page
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="404: Page Not Found - Meta Data Remover"
+  description="The requested page could not be found on metadataremover.tech. Return to our 100% in-browser image metadata stripper."
+>
+  <div class="py-12 md:py-20 px-4 md:px-8 my-auto w-full flex flex-col items-center justify-center text-center">
+    
+    <div class="max-w-xl mx-auto flex flex-col items-center">
+      <!-- Error Badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-canvas)] border border-[var(--color-hairline)] text-xs font-mono text-[#ee0000] mb-4 shadow-xs">
+        <span class="w-2 h-2 rounded-full bg-[#ee0000] animate-ping"></span>
+        <span class="font-bold">ERROR 404</span>
+        <span class="text-[var(--color-hairline-strong)]">•</span>
+        <span class="text-[var(--color-body)]">Page Not Found</span>
+      </div>
+
+      <!-- Error Monospace Status -->
+      <h1 class="display-xl text-[var(--color-ink)] mb-2 tracking-tighter">
+        404.
+      </h1>
+
+      <h2 class="display-md text-[var(--color-ink)] mb-3">
+        This page does not exist.
+      </h2>
+
+      <p class="text-sm text-[var(--color-body)] max-w-md mb-6 leading-relaxed">
+        The page URL you followed may be broken or moved. Return to the homepage to strip metadata from your photos.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
+        <a 
+          href="/" 
+          class="px-6 py-2.5 rounded-full bg-[var(--color-primary)] text-[var(--color-on-primary)] text-xs md:text-sm font-semibold hover:opacity-90 transition-all shadow-xs"
+        >
+          Return to Metadata Tool →
+        </a>
+
+        <a 
+          href="/contact" 
+          class="px-6 py-2.5 rounded-full bg-[var(--color-canvas)] border border-[var(--color-hairline)] text-[var(--color-ink)] text-xs md:text-sm font-semibold hover:border-[var(--color-hairline-strong)] transition-all"
+        >
+          Report Broken Link
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>

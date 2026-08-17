@@ -1,0 +1,60 @@
+---
+// how-it-works.astro - How It Works Technical Guide Page
+import Layout from '../layouts/Layout.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+---
+
+<Layout
+  title="How Our Online Metadata Remover Works — Browser-Based EXIF Stripping"
+  description="Learn how our online metadata remover strips EXIF data, GPS tags, and AI prompts without uploading your photos. 100% client-side HTML5 Canvas re-rendering. No server, no uploads."
+  keywords="online metadata remover, how to remove metadata, exif metadata remover, remove metadata online, metadata remover how it works, free metadata remover, metadata remover app"
+>
+  <div class="w-full py-12 md:py-16 px-4 md:px-8 mesh-gradient-bg border-b border-[var(--color-hairline)] text-center">
+    <div class="max-w-4xl mx-auto">
+      <span class="caption-mono text-[#7928ca] mb-2 font-mono">Under The Hood</span>
+      <h1 class="display-lg text-[var(--color-ink)] mb-4">Technical Engine Mechanics</h1>
+      <p class="text-sm md:text-base text-[var(--color-body)] max-w-xl mx-auto">
+        Discover how our client-side Web Sandbox processes your images in RAM without sending bytes across the web.
+      </p>
+    </div>
+  </div>
+
+  <HowItWorks />
+
+  <!-- Engine Breakdown Section -->
+  <section class="w-full py-16 px-4 md:px-8 bg-[var(--color-canvas)]">
+    <div class="max-w-4xl mx-auto space-y-10 text-sm text-[var(--color-body)] leading-relaxed">
+      
+      <div class="p-6 rounded-xl bg-[var(--color-canvas-soft-2)] border border-[var(--color-hairline)] space-y-3">
+        <h2 class="text-lg font-semibold text-[var(--color-ink)] flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-[#0070f3]"></span>
+          1. Local Memory File API Sandbox
+        </h2>
+        <p>
+          When you drag an image onto the dropzone, the HTML5 File API reads the raw binary ArrayBuffer into JavaScript execution memory (RAM). The image data never makes an HTTP `POST` request or touches any cloud infrastructure.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-xl bg-[var(--color-canvas-soft-2)] border border-[var(--color-hairline)] space-y-3">
+        <h2 class="text-lg font-semibold text-[var(--color-ink)] flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-[#7928ca]"></span>
+          2. EXIF, XMP & PNG Chunk Parsing
+        </h2>
+        <p>
+          We utilize `exifr` to inspect binary APP markers (JPEG APP1, APP2) and PNG ancillary chunks (`tEXt`, `zTXt`, `iTXt`). This allows our interactive inspector to display all embedded tags, including camera parameters, GPS coordinates, and AI generator prompts.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-xl bg-[var(--color-canvas-soft-2)] border border-[var(--color-hairline)] space-y-3">
+        <h2 class="text-lg font-semibold text-[var(--color-ink)] flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-[#50e3c2]"></span>
+          3. Canvas Pixel Re-rendering & Export
+        </h2>
+        <p>
+          To guarantee 100% metadata destruction, the image is rendered onto an off-screen HTML5 <code>canvas</code> element. Exporting the canvas to a clean <code>Blob</code> generates a fresh image buffer containing only essential pixel data, effectively dropping all non-standard metadata blocks.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</Layout>

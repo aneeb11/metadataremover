@@ -1,0 +1,84 @@
+---
+// features.astro - Dedicated Features & Metadata Specifications Page
+import Layout from '../layouts/Layout.astro';
+import Features from '../components/Features.astro';
+---
+
+<Layout
+  title="Image Metadata Remover — All EXIF & GPS Fields Stripped | metadataremover.tech"
+  description="See every field our image metadata remover strips: GPS geotags, camera EXIF, XMP/IPTC copyright, AI prompts (Stable Diffusion, Midjourney, DALL-E), and C2PA credentials. Free, 100% in-browser."
+  keywords="image metadata remover, photo metadata remover, exif metadata remover, remove gps from photo, remove exif data online, ai image metadata remover, c2pa metadata remover, xmp iptc remover, metadata remover free, picture metadata remover"
+>
+  <div class="w-full py-12 md:py-16 px-4 md:px-8 mesh-gradient-bg border-b border-[var(--color-hairline)] text-center">
+    <div class="max-w-4xl mx-auto">
+      <span class="caption-mono text-[#0070f3] mb-2 font-mono">Full Data Specification</span>
+      <h1 class="display-lg text-[var(--color-ink)] mb-4">Every Metadata Field We Erase</h1>
+      <p class="text-sm md:text-base text-[var(--color-body)] max-w-xl mx-auto">
+        Detailed breakdown of technical headers, binary chunks, location geotags, and generator prompts cleared from your image files.
+      </p>
+    </div>
+  </div>
+
+  <Features />
+
+  <!-- Technical Field Deep-Dive -->
+  <section class="w-full py-16 px-4 md:px-8 bg-[var(--color-canvas)]">
+    <div class="max-w-4xl mx-auto space-y-12">
+      
+      <div>
+        <h2 class="text-xl font-semibold text-[var(--color-ink)] mb-4">Image Metadata Categories</h2>
+        
+        <div class="space-y-6 text-sm text-[var(--color-body)] leading-relaxed">
+          <div class="p-5 rounded-xl bg-[var(--color-canvas-soft-2)] border border-[var(--color-hairline)]">
+            <h3 class="font-semibold text-[var(--color-ink)] mb-2 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#ee0000]"></span>
+              1. Camera EXIF & Hardware Markers
+            </h3>
+            <p class="text-xs text-[var(--color-mute)] mb-3">Stored inside JPEG APP1 segments and TIFF header tables.</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 font-mono text-xs text-[var(--color-ink)]">
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• Make & Model</span>
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• Serial Numbers</span>
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• Lens Info</span>
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• F-Number & ISO</span>
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• Exposure Time</span>
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• DateTimeOriginal</span>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[var(--color-canvas-soft-2)] border border-[var(--color-hairline)]">
+            <h3 class="font-semibold text-[var(--color-ink)] mb-2 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#7928ca]"></span>
+              2. AI Prompts & Generation Seeds
+            </h3>
+            <p class="text-xs text-[var(--color-mute)] mb-3">Stored inside PNG tEXt/zTXt/iTXt chunks and JPEG commentary fields.</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 font-mono text-xs text-[var(--color-ink)]">
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• Positive Prompt</span>
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• Negative Prompt</span>
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• Seed & Sampler</span>
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• CFG Scale</span>
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• Model Hash</span>
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• DALL-E Headers</span>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-xl bg-[var(--color-canvas-soft-2)] border border-[var(--color-hairline)]">
+            <h3 class="font-semibold text-[var(--color-ink)] mb-2 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#29bc9b]"></span>
+              3. C2PA & Provenance Credentials
+            </h3>
+            <p class="text-xs text-[var(--color-mute)] mb-3">Attached by Adobe Creative Cloud and Content Authenticity Initiative tools.</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 font-mono text-xs text-[var(--color-ink)]">
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• Edit Lineage</span>
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• CAI Manifest</span>
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• Signing Keys</span>
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• Software Build</span>
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• Source Assets</span>
+              <span class="p-2 bg-[var(--color-canvas)] rounded border border-[var(--color-hairline)]">• Creator Signatures</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>

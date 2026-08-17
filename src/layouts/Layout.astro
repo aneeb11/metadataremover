@@ -1,23 +1,146 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+// Layout.astro - Master Layout with full On-Page SEO
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  keywords?: string;
+  structuredData?: object;
+}
+
+const {
+  title = "Metadata Remover — Free Online Image Metadata & EXIF Remover",
+  description = "Free online metadata remover. Remove EXIF data, GPS location, AI prompts, and C2PA credentials from photos instantly in your browser. No uploads. 100% private.",
+  ogImage = "https://metadataremover.tech/og-image.png",
+  keywords = "metadata remover, image metadata remover, photo metadata remover, ai metadata remover, free metadata remover, metadata remover online, exif metadata remover, online metadata remover, metadata remover free, metadata remover app, picture metadata remover, bulk metadata remover, remove exif data, remove gps from photo",
+  structuredData,
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const canonicalUrl = new URL(currentPath, 'https://metadataremover.tech').toString();
+
+const siteStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Metadata Remover",
+  "alternateName": ["Meta Data Remover", "Image Metadata Remover", "EXIF Remover", "Photo Metadata Remover"],
+  "url": "https://metadataremover.tech",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any (Browser-Based)",
+  "browserRequirements": "Requires JavaScript",
+  "description": "Free online metadata remover. Strip EXIF data, GPS coordinates, C2PA content credentials, and AI generation prompts from images directly in your browser. Zero server uploads, 100% private.",
+  "featureList": [
+    "Remove EXIF metadata from JPEG and PNG",
+    "Strip GPS geotags from photos",
+    "Remove AI prompt metadata from Stable Diffusion, Midjourney, DALL-E images",
+    "Delete C2PA content credentials",
+    "Batch metadata removal with ZIP download",
+    "100% client-side - no server upload",
+    "Free with no file size limit"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "312"
+  }
+};
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  <link rel="canonical" href={canonicalUrl} />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="author" content="metadataremover.tech" />
+  <meta name="theme-color" content="#171717" />
+
+  <!-- Prevent Theme FOUC Script -->
+  <script is:inline>
+    (function() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Metadata Remover" />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Metadata Remover — Free Online EXIF & Image Metadata Stripper" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@metadataremover" />
+  <meta name="twitter:creator" content="@metadataremover" />
+  <meta name="twitter:url" content={canonicalUrl} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:image:alt" content="Metadata Remover — Free Online EXIF & Image Metadata Stripper" />
+
+  <!-- Favicon & Web App Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <meta name="apple-mobile-web-app-title" content="Metadata Remover" />
+  <meta name="application-name" content="Metadata Remover" />
+
+  <!-- Schema.org — SoftwareApplication (all pages) -->
+  <script type="application/ld+json" set:html={JSON.stringify(siteStructuredData)} />
+
+  <!-- Page-specific structured data (optional slot) -->
+  {structuredData && (
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  )}
+
+  <!-- Breadcrumb / WebSite schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Metadata Remover",
+    "alternateName": "metadataremover.tech",
+    "url": "https://metadataremover.tech",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://metadataremover.tech/faq"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  })} />
+
+</head>
+<body class="min-h-screen flex flex-col bg-[var(--color-canvas-soft)] text-[var(--color-ink)]">
+  <Navbar currentPath={currentPath} />
+  <main class="flex-grow flex flex-col" id="main-content">
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

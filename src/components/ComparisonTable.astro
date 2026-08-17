@@ -1,0 +1,104 @@
+---
+// ComparisonTable.astro - Architecture & Feature Comparison
+---
+
+<section id="comparison" class="w-full py-16 md:py-24 px-4 md:px-8 bg-[var(--color-canvas-soft)] border-b border-[var(--color-hairline)] transition-colors">
+  <div class="max-w-4xl mx-auto">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col items-center text-center mb-12">
+      <span class="caption-mono text-[#0070f3] mb-2 font-mono">Architecture Benchmark</span>
+      <h2 class="display-lg text-[var(--color-ink)] max-w-xl">
+        How Meta Data Remover Compares.
+      </h2>
+      <p class="text-sm md:text-base text-[var(--color-body)] max-w-lg mt-3">
+        See how 100% in-browser client-side execution compares to legacy cloud upload tools and basic EXIF viewers.
+      </p>
+    </div>
+
+    <!-- Comparison Table Card -->
+    <div class="vercel-card bg-[var(--color-canvas)] border border-[var(--color-hairline)] overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs md:text-sm">
+          <thead>
+            <tr class="bg-[var(--color-canvas-soft-2)] border-b border-[var(--color-hairline)] caption-mono text-[var(--color-mute)]">
+              <th class="py-3.5 px-5 font-mono">Feature / Privacy Guard</th>
+              <th class="py-3.5 px-5 font-mono text-[var(--color-ink)] bg-[var(--color-canvas)] font-semibold border-x border-[var(--color-hairline)]">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-[#0070f3]"></span>
+                  <span>Meta Data Remover</span>
+                </div>
+              </th>
+              <th class="py-3.5 px-5 font-mono">Standard Online Tools</th>
+              <th class="py-3.5 px-5 font-mono">Legacy Desktop Tools</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[var(--color-hairline)]">
+            
+            <!-- Row 1 -->
+            <tr class="hover:bg-[var(--color-canvas-soft-2)] transition-colors">
+              <td class="py-3.5 px-5 font-medium text-[var(--color-ink)]">100% In-Browser (Zero Server Uploads)</td>
+              <td class="py-3.5 px-5 bg-[var(--color-canvas)] font-semibold text-[#0070f3] border-x border-[var(--color-hairline)]">
+                <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#0070f3]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Yes (Browser Sandbox)</span>
+              </td>
+              <td class="py-3.5 px-5 text-[#ee0000] font-medium">Server Upload Required</td>
+              <td class="py-3.5 px-5 text-[var(--color-mute)] font-medium">Local App Install Needed</td>
+            </tr>
+
+            <!-- Row 2 -->
+            <tr class="hover:bg-[var(--color-canvas-soft-2)] transition-colors">
+              <td class="py-3.5 px-5 font-medium text-[var(--color-ink)]">Searchable Tag Inspector & Map Links</td>
+              <td class="py-3.5 px-5 bg-[var(--color-canvas)] font-semibold text-[#0070f3] border-x border-[var(--color-hairline)]">
+                <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#0070f3]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Real-Time Search & Maps</span>
+              </td>
+              <td class="py-3.5 px-5 text-[var(--color-mute)]">Rarely Provided</td>
+              <td class="py-3.5 px-5 text-[var(--color-mute)]">Complex Interface</td>
+            </tr>
+
+            <!-- Row 3 -->
+            <tr class="hover:bg-[var(--color-canvas-soft-2)] transition-colors">
+              <td class="py-3.5 px-5 font-medium text-[var(--color-ink)]">AI Prompt & C2PA Credential Stripper</td>
+              <td class="py-3.5 px-5 bg-[var(--color-canvas)] font-semibold text-[#0070f3] border-x border-[var(--color-hairline)]">
+                <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#0070f3]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Automatic AI Prompt Clean</span>
+              </td>
+              <td class="py-3.5 px-5 text-[#ee0000] font-medium">No AI Support</td>
+              <td class="py-3.5 px-5 text-[var(--color-mute)]">Requires Custom Scripts</td>
+            </tr>
+
+            <!-- Row 4 -->
+            <tr class="hover:bg-[var(--color-canvas-soft-2)] transition-colors">
+              <td class="py-3.5 px-5 font-medium text-[var(--color-ink)]">Perceptual Hash Reset (Anti-Tracking)</td>
+              <td class="py-3.5 px-5 bg-[var(--color-canvas)] font-semibold text-[#0070f3] border-x border-[var(--color-hairline)]">
+                <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#0070f3]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Included (Privacy Turbo)</span>
+              </td>
+              <td class="py-3.5 px-5 text-[#ee0000] font-medium">Not Supported</td>
+              <td class="py-3.5 px-5 text-[#ee0000] font-medium">Not Supported</td>
+            </tr>
+
+            <!-- Row 5 -->
+            <tr class="hover:bg-[var(--color-canvas-soft-2)] transition-colors">
+              <td class="py-3.5 px-5 font-medium text-[var(--color-ink)]">1-Click ZIP Archive Export</td>
+              <td class="py-3.5 px-5 bg-[var(--color-canvas)] font-semibold text-[#0070f3] border-x border-[var(--color-hairline)]">
+                <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#0070f3]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Instant ZIP Download</span>
+              </td>
+              <td class="py-3.5 px-5 text-[var(--color-mute)]">Single File Only / Gated</td>
+              <td class="py-3.5 px-5 text-[var(--color-mute)]">Manual Export</td>
+            </tr>
+
+            <!-- Row 6 -->
+            <tr class="hover:bg-[var(--color-canvas-soft-2)] transition-colors">
+              <td class="py-3.5 px-5 font-medium text-[var(--color-ink)]">Clean Ad-Free Privacy Interface</td>
+              <td class="py-3.5 px-5 bg-[var(--color-canvas)] font-semibold text-[#0070f3] border-x border-[var(--color-hairline)]">
+                <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#0070f3]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> 100% Ad-Free</span>
+              </td>
+              <td class="py-3.5 px-5 text-[#ee0000] font-medium">Ad-Heavy & Cluttered</td>
+              <td class="py-3.5 px-5 text-[var(--color-mute)]">N/A</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>

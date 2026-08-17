@@ -1,11 +1,189 @@
 ---
-import Welcome from '../components/Welcome.astro';
+// index.astro - Home Page with On-Page SEO Content
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import MetadataApp from '../components/MetadataApp.astro';
+import Features from '../components/Features.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Metadata Remover — Free Online Image Metadata & EXIF Remover | metadataremover.tech"
+  description="Free online metadata remover. Remove EXIF data, GPS location, AI prompts (Stable Diffusion, Midjourney, DALL-E), and C2PA credentials from photos instantly in your browser. No uploads. 100% private."
+  keywords="metadata remover, image metadata remover, photo metadata remover, ai metadata remover, free metadata remover, metadata remover online, exif metadata remover, ai image metadata remover, online metadata remover, metadata remover free, metadata remover app, picture metadata remover, bulk metadata remover"
+>
+  <!-- Core Tool App -->
+  <MetadataApp />
+
+  <!-- Feature Overview -->
+  <Features />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SEO CONTENT BLOCK — 800-1200 words targeting all keywords
+  ════════════════════════════════════════════════════════════════════ -->
+  <article class="w-full py-16 md:py-20 px-4 md:px-8 bg-[var(--color-canvas)] border-t border-[var(--color-hairline)]" aria-label="About Metadata Remover">
+    <div class="max-w-4xl mx-auto space-y-10 text-sm md:text-base text-[var(--color-body)] leading-relaxed">
+
+      <!-- H2 Section 1 -->
+      <section>
+        <h2 class="display-md text-[var(--color-ink)] mb-4">
+          The Best Free Metadata Remover Online
+        </h2>
+        <p>
+          <strong class="text-[var(--color-ink)]">Metadata Remover</strong> is the most private, powerful, and completely free online metadata remover available today. Unlike conventional tools that upload your photos to a remote server for processing, our <strong>online metadata remover</strong> operates entirely within your web browser's local memory. Your images are never transmitted over the internet, never stored on a server, and never seen by anyone but you. Simply open <a href="https://metadataremover.tech" class="text-[#0070f3] underline underline-offset-2 hover:opacity-80">metadataremover.tech</a>, drag in your photos, and download perfectly clean copies in seconds.
+        </p>
+        <p class="mt-3">
+          Whether you need a quick <strong>photo metadata remover</strong> for a single selfie, a robust <strong>bulk metadata remover</strong> for hundreds of product images, or a specialised <strong>AI image metadata remover</strong> for Stable Diffusion outputs — this single browser-based tool handles every scenario for free.
+        </p>
+      </section>
+
+      <!-- H2 Section 2 -->
+      <section>
+        <h2 class="display-md text-[var(--color-ink)] mb-4">
+          What Is Image Metadata and Why Does It Matter?
+        </h2>
+        <p>
+          Every digital photo carries far more information than the visible pixels. Hidden inside the file's binary structure are dozens — sometimes hundreds — of invisible data fields collectively called <strong>image metadata</strong>. The most widely-known standard is <strong>EXIF</strong> (Exchangeable Image File Format), which cameras and smartphones write automatically when you press the shutter.
+        </p>
+        <p class="mt-3">
+          A typical smartphone photo may contain: your <strong>GPS latitude and longitude</strong> accurate to within five metres (enough to pinpoint your home address), the exact date and time of capture, your device's make and model, the camera's lens specifications and serial number, your network provider, the photo editing software you used, and — if the image was AI-generated — the full text prompt, seed value, sampler settings, and model hash.
+        </p>
+        <p class="mt-3">
+          When you share a photo on social media, attach it to an email, or publish it on a website, all of this data is embedded invisibly within the file. Anyone who downloads your photo can extract this data using freely available tools. This is precisely why a reliable <strong>image metadata remover</strong> is an essential privacy tool for photographers, journalists, activists, content creators, and everyday users alike.
+        </p>
+      </section>
+
+      <!-- H2 Section 3 -->
+      <section>
+        <h2 class="display-md text-[var(--color-ink)] mb-4">
+          How Our Free Metadata Remover Works
+        </h2>
+        <p>
+          Our <strong>free metadata remover</strong> uses a three-stage client-side pipeline that runs entirely within your browser, powered by modern Web APIs:
+        </p>
+        <ol class="mt-4 space-y-3 list-none pl-0">
+          <li class="flex gap-3">
+            <span class="font-mono font-bold text-[#0070f3] w-6 flex-shrink-0 mt-0.5">01</span>
+            <div>
+              <strong class="text-[var(--color-ink)]">Metadata Inspection via EXIF Parser.</strong> When you drop an image, our <strong>EXIF metadata remover</strong> engine (powered by the <code class="font-mono bg-[var(--color-canvas-soft-2)] px-1 py-0.5 rounded text-xs">exifr</code> library) reads all embedded headers — including TIFF tags, XMP packets, IPTC records, JFIF blocks, GPS IFDs, and PNG text chunks — and displays them in our interactive Tag Inspector. You can search, filter, and review every piece of metadata before stripping.
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span class="font-mono font-bold text-[#7928ca] w-6 flex-shrink-0 mt-0.5">02</span>
+            <div>
+              <strong class="text-[var(--color-ink)]">Canvas Re-rendering Strips Everything.</strong> Clicking Strip initiates a zero-upload processing pipeline: the image is decoded into raw pixel data using the <code class="font-mono bg-[var(--color-canvas-soft-2)] px-1 py-0.5 rounded text-xs">HTMLImageElement</code>, painted onto an off-screen <code class="font-mono bg-[var(--color-canvas-soft-2)] px-1 py-0.5 rounded text-xs">HTMLCanvasElement</code>, and re-exported as a brand-new binary file. This canvas re-render produces a file that contains <em>only</em> pixel colour values — every EXIF tag, XMP block, IPTC field, GPS record, C2PA manifest, AI prompt, and PNG text chunk is permanently discarded.
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span class="font-mono font-bold text-[#50e3c2] w-6 flex-shrink-0 mt-0.5">03</span>
+            <div>
+              <strong class="text-[var(--color-ink)]">Privacy Turbo — Perceptual Hash Reset.</strong> For users who need deeper anonymity, our optional Privacy Turbo mode applies sub-perceptual LSB (least-significant-bit) pixel noise to the canvas buffer before export. This alters the cryptographic SHA-256 hash and perceptual dHash/pHash fingerprint of the image, defeating cross-platform image tracking algorithms used by social networks and data brokers to link the same image uploaded under different accounts.
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- H2 Section 4 -->
+      <section>
+        <h2 class="display-md text-[var(--color-ink)] mb-4">
+          AI Image Metadata Remover — For Stable Diffusion, Midjourney & DALL-E
+        </h2>
+        <p>
+          As AI-generated images become mainstream, a new category of metadata has emerged that most <strong>EXIF metadata removers</strong> cannot handle. When you generate an image with <strong>Stable Diffusion</strong> (via Automatic1111 or ComfyUI), the output PNG file contains your full positive and negative prompts, the random seed, the CFG scale value, the sampler name, the model checkpoint hash, and the LoRA weights — all stored in plain text inside the PNG <code class="font-mono bg-[var(--color-canvas-soft-2)] px-1 py-0.5 rounded text-xs">tEXt</code> and <code class="font-mono bg-[var(--color-canvas-soft-2)] px-1 py-0.5 rounded text-xs">zTXt</code> chunks.
+        </p>
+        <p class="mt-3">
+          <strong>Midjourney</strong> and <strong>DALL-E</strong> embed similar generation data in JPEG comment markers and XMP packets. Anyone who downloads your AI artwork can trivially recover your creative prompt — your intellectual property — using a free hex editor or online EXIF viewer.
+        </p>
+        <p class="mt-3">
+          Our <strong>AI metadata remover</strong> and <strong>AI image metadata remover</strong> functionality completely eliminates all generation parameters through canvas re-rendering, which discards every non-standard chunk type by design. Your creative prompts stay yours alone.
+        </p>
+      </section>
+
+      <!-- H2 Section 5 -->
+      <section>
+        <h2 class="display-md text-[var(--color-ink)] mb-4">
+          Bulk Metadata Remover with ZIP Export
+        </h2>
+        <p>
+          Professional photographers, e-commerce sellers, and digital agencies often need to clean dozens or hundreds of images at once. Our <strong>bulk metadata remover</strong> accepts unlimited files in a single drag-and-drop session. Every file is processed in parallel inside the browser using asynchronous JavaScript — no waiting, no queue position, no server bottleneck.
+        </p>
+        <p class="mt-3">
+          Once all images are stripped, click <strong>Download ZIP</strong> to receive every cleaned file in a single compressed archive generated client-side via the <code class="font-mono bg-[var(--color-canvas-soft-2)] px-1 py-0.5 rounded text-xs">JSZip</code> library — again, without any server involvement. This makes our tool the most capable <strong>metadata remover app</strong> for bulk workflows available entirely for free in a browser.
+        </p>
+      </section>
+
+      <!-- H2 Section 6 -->
+      <section>
+        <h2 class="display-md text-[var(--color-ink)] mb-4">
+          Supported Formats: Picture Metadata Remover for JPEG, PNG, WebP & More
+        </h2>
+        <p>
+          As a comprehensive <strong>picture metadata remover</strong>, we support the most common image file formats in use today:
+        </p>
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {[
+            { fmt: "JPEG / JPG", detail: "EXIF APP1, APP2 (ICC), JFIF APP0, IPTC APP13, XMP APP1, C2PA markers" },
+            { fmt: "PNG", detail: "tEXt, zTXt, iTXt chunks (AI prompts, copyright), iCCP colour profiles" },
+            { fmt: "WebP", detail: "EXIF metadata chunk, XMP metadata chunk, ICC colour profile chunk" },
+            { fmt: "AVIF / HEIC", detail: "ISOBMFF metadata boxes including Exif and XMP item containers" },
+            { fmt: "GIF", detail: "Comment extensions and Application extension blocks" },
+          ].map(({ fmt, detail }) => (
+            <div class="p-3 rounded-lg bg-[var(--color-canvas-soft-2)] border border-[var(--color-hairline)]">
+              <p class="font-semibold text-[var(--color-ink)] text-xs mb-0.5 font-mono">{fmt}</p>
+              <p class="text-[11px] text-[var(--color-mute)]">{detail}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- H2 Section 7 -->
+      <section>
+        <h2 class="display-md text-[var(--color-ink)] mb-4">
+          Why Choose This Metadata Remover Over Others?
+        </h2>
+        <p>
+          Many <strong>online metadata removers</strong> require you to upload your photos to their servers — which directly contradicts the purpose of removing privacy-sensitive data. You're handing your GPS coordinates, device serial numbers, and AI prompts to yet another third party in exchange for having them stripped.
+        </p>
+        <p class="mt-3">
+          <strong>metadataremover.tech</strong> takes the opposite approach: the tool is downloaded to your browser once (as a static Astro site), and every subsequent operation is executed entirely in local RAM. The network tab in your browser's developer tools will show <strong>zero outgoing requests</strong> during image processing. You can verify this by going offline after the page loads — the tool continues to work perfectly.
+        </p>
+        <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            { label: "100% Free", desc: "No account, no subscription, no watermark, no file limit." },
+            { label: "Zero Uploads", desc: "Files processed in local browser memory only. Verifiable offline." },
+            { label: "AI-Ready", desc: "Strips Stable Diffusion prompts, Midjourney signatures & C2PA credentials." },
+          ].map(({ label, desc }) => (
+            <div class="p-4 rounded-xl bg-[var(--color-canvas-soft-2)] border border-[var(--color-hairline)] text-center">
+              <p class="font-semibold text-[var(--color-ink)] mb-1">{label}</p>
+              <p class="text-[11px] text-[var(--color-mute)] leading-relaxed">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="pt-4 border-t border-[var(--color-hairline)] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <p class="font-semibold text-[var(--color-ink)] mb-1">Start removing metadata now — it takes under 10 seconds.</p>
+          <p class="text-xs text-[var(--color-mute)]">No sign-up required. Works on any device with a modern browser.</p>
+        </div>
+        <a href="#app" class="flex-shrink-0 px-6 py-2.5 rounded-full bg-[var(--color-primary)] text-[var(--color-on-primary)] text-sm font-semibold hover:opacity-90 shadow-xs">
+          Remove Metadata Free →
+        </a>
+      </section>
+
+    </div>
+  </article>
+
+  <!-- Page Gateway Banner -->
+  <section class="w-full py-10 px-4 md:px-8 bg-[var(--color-canvas-soft)] border-t border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 p-6 rounded-xl bg-[var(--color-canvas)] border border-[var(--color-hairline)]">
+      <div class="text-left">
+        <h3 class="text-base font-semibold text-[var(--color-ink)] mb-1">Learn how our browser-based engine works</h3>
+        <p class="text-xs text-[var(--color-body)]">Deep-dive into canvas re-rendering, EXIF parsing, and AI prompt detection.</p>
+      </div>
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <a href="/how-it-works" class="px-4 py-2 rounded-full bg-[var(--color-primary)] text-[var(--color-on-primary)] text-xs font-semibold hover:opacity-90">How It Works →</a>
+        <a href="/comparison" class="px-4 py-2 rounded-full bg-[var(--color-canvas-soft-2)] border border-[var(--color-hairline)] text-[var(--color-ink)] text-xs font-semibold hover:border-[var(--color-hairline-strong)]">Compare Features</a>
+      </div>
+    </div>
+  </section>
 </Layout>
